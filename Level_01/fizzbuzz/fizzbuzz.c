@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 16:07:32 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/21 16:20:00 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:37:56 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_putnbr(int i)
 {
 	if (i > 9)
+		// Peel off-higher order digit first
 		ft_putnbr(i / 10);
+	// Print the current last digit
 	write(1, &"0123456789"[i % 10], 1);
 }
 
