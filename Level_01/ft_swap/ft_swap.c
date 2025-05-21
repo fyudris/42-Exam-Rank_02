@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyudris <fyudris@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/21 17:06:46 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/21 17:11:49 by fyudris          ###   ########.fr       */
+/*   Created: 2025/05/21 17:12:54 by fyudris           #+#    #+#             */
+/*   Updated: 2025/05/21 17:18:18 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strlen(char *str)
+void    ft_swap(int *a, int *b)
 {
-	unsigned int	len;
-
-	len = 0;
-	while (*str)
-	{
-		len++;
-		str++;
-	}
-	return (len);
+	if (!a || !b)
+		return ;
+	int	temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 /*
 #include <stdio.h>
 
 int	main()
 {
-	printf("Len = %i\n", ft_strlen("HELLO WORLD\n"));
-	printf("Len = %i\n", ft_strlen(""));
+	int a = 99;
+	int b = 42;
+
+	printf("Before: a = %i, b = %i\n", a, b);
+	ft_swap(&a, &b);
+	printf("After: a = %i, b = %i\n", a, b);
 	return (0);
 }
 */
