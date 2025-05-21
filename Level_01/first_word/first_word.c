@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 22:29:20 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/19 22:48:33 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/21 16:02:15 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 int	main(int argc, char **argv)
 {
-	// Check for number of argument
+	//Check for the number of arguments
 	if (argc == 2)
 	{
 		unsigned int	i;
+
 		i = 0;
-		// Loop over possible spaces (32) and tab (9)
-		while (argv[1][i] && (argv[1][i] == 32 || argv[1][i] == 9))
+		//Skip tabs and spaces before the first word
+		while (argv[1][i] == 9 || argv[1][i] == 32)
 			i++;
-		// Start printing until we find either a space, tab, or \0
-		while (argv[1][i] && (argv[1][i] != 32 && argv[1][i] != 9))
-			write(1, &argv[1][i++], 1);
+		while (argv[1][i] && (argv[1][i] != 9 && argv[1][i] != 32))
+		{
+			write(1, &argv[1][i], 1);
+			i++;
+		}
 	}
-	// Write \n at the end for both correct & error case
 	write(1, "\n", 1);
 	return (0);
 }
