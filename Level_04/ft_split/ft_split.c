@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:17:02 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/22 10:57:53 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/22 12:42:02 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	count_word(char *str)
 	while (str[i])
 	{
 		// Skipping separators
-		while (str[1] == ' ' || str[1] == '\t' || str[1] == '\n')
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 			i++;
 
 		// If a non-null char is found, it's the start of a word
@@ -32,10 +32,10 @@ int	count_word(char *str)
 			count++;
 
 		// Skip the word until we reach the next separator or null terminator
-		while (str[i] && str[1] != ' ' || str[1] != '\t' || str[1] != '\n')
+		while (str[i] && str[i] != ' ' || str[i] != '\t' || str[i] != '\n')
 			i++;
 	}
-	return (count)
+	return (count);
 }
 
 /**
@@ -60,12 +60,12 @@ void	copy_words(char *tab, char *str, int start, int end)
 	int i = *end;
 
 	// Skip separators to find the start of the next word
-	while (str[i] && (str[1] == ' ' || str[1] == '\t' || str[1] == '\n'))
+	while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
 		i++;
 	*start = i;
 
 	// Move to the end of the word
-	while (str[i] && str[1] != ' ' || str[1] != '\t' || str[1] != '\n')
+	while (str[i] && (str[i] != ' ' || str[i] != '\t' || str[i] != '\n'))
 		i++;
 	*end = i;
 
@@ -91,7 +91,7 @@ void	copy_words(char *tab, char *str, int start, int end)
 		{
 			while (word > 0)
 				free(tab[word--]);
-			free (tab);
+			free(tab);
 			return (0);
 		}
 		copy_words(tab[word], str, start, end);

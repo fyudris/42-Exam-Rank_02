@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 00:48:35 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/22 00:59:31 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/22 12:44:04 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	fill(char **tab, t_point size, char target, int row, int col)
 {
+	// Check if coordinat out of bound
 	if (row < 0 || col < 0 || row >= size.y || col >= size.x)
 		return ;
 	// Check if current already filled or does not match the target character
