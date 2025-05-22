@@ -1,0 +1,61 @@
+Assignment name: bit_field_check
+Expected files: bit_field_check.c
+Allowed functions: write, malloc, free
+❓Problem Statement
+Write a program that takes two arguments:
+
+bash
+Copy
+Edit
+./bit_field_check <number> <bit-position>
+It should check if the bit at the given position is set (1) in the binary representation of <number>.
+
+If the bit is set → print "ON\n"
+
+If the bit is not set → print "OFF\n"
+
+If the input is invalid (missing args, negative position, etc.) → print just a newline
+
+Bit positions are 0-indexed from the right (LSB = position 0).
+
+🧠 Constraints
+You must use bitwise shift operations (<<, >>) and bitwise AND.
+
+Do not use %, /, or loops.
+
+Input is valid only if:
+
+Both arguments are present
+
+bit-position is a non-negative integer
+
+Input is valid only if:
+
+Both arguments are present
+
+bit-position is a non-negative integer
+
+🧪 Example Output
+bash
+Copy
+Edit
+$ ./bit_field_check 5 0
+ON       # 5 = 101 → bit 0 is 1
+
+$ ./bit_field_check 5 1
+OFF      # 5 = 101 → bit 1 is 0
+
+$ ./bit_field_check 5 2
+ON       # bit 2 is 1
+
+$ ./bit_field_check 8 3
+ON       # 8 = 1000 → bit 3 is 1
+
+$ ./bit_field_check 8 5
+OFF
+
+$ ./bit_field_check 8 -1
+<newline>
+
+$ ./bit_field_check
+<newline>

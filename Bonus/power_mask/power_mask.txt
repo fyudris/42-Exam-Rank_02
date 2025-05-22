@@ -1,0 +1,21 @@
+Exam Problem: Power of Two Masking
+Assignment name: power_mask
+Expected files: power_mask.c
+Allowed functions: write
+
+Problem Statement:
+Write a program that takes a single positive integer as an argument and prints:
+
+"YES\n" if the number is a power of 2 (e.g., 1, 2, 4, 8, 16, 32, ...).
+
+"NO\n" otherwise.
+
+Bonus: You must use bitwise operations only to solve this.
+(Do not use loops, multiplication, division, or modulo.)
+
+If the number of arguments is not 1, or the input is invalid (e.g., not a positive integer), print just a newline.
+
+Hints for Students:
+A number is a power of 2 if it has exactly one bit set in binary.
+
+In other words, n & (n - 1) is 0 if and only if n is a power of 2.
