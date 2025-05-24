@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/21 21:24:18 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/21 21:41:50 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/24 17:37:25 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int     ft_atoi(const char *str)
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int	main()
 {
@@ -59,5 +60,6 @@ int	main()
 	printf("Result atoi = %d\n", atoi(""));
 	printf("Result = %d\n", ft_atoi("0"));
 	printf("Result = %d\n", ft_atoi("-0"));
+
 	return (0);
 }
