@@ -5,52 +5,122 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyudris <fyudris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/22 04:14:03 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/22 04:15:59 by fyudris          ###   ########.fr       */
+/*   Created: 2025/05/30 00:11:04 by fyudris           #+#    #+#             */
+/*   Updated: 2025/05/30 00:38:58 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "list.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-#include "list.h"
 
-// Sorts a singly linked list in-place using the provided comparison function.
-// Returns a pointer to the head of the sorted list.
-t_list *sort_list(t_list *lst, int (*cmp)(int, int))
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-	t_list *start;   // This will keep track of the head of the list
-	int temp;        // Temporary variable for swapping data values
-	int swapped;     // Flag to check if any swap occurred in a pass
-
 	if (!lst)
-		return (NULL); // If the list is empty, return NULL
+		return (NULL);
 
-	start = lst;     // Save the head of the list so we can always return it
-	swapped = 1;     // Initialize swap flag to enter the while loop
+	if (lst && !lst->next)
+		return (lst);
 
-	// Outer loop continues until a full pass is made with no swaps
-	while (swapped)
+	t_list	*current = lst;
+	int swaped = 1;
+	int temp;
+
+	while (swaped)
 	{
-		swapped = 0;     // Reset swap flag at the beginning of each pass
-		lst = start;     // Start from the beginning of the list
-
-		// Traverse the list and compare adjacent elements
-		while (lst->next)
+		swaped = 0;
+		current = lst;
+		while(current && current->next)
 		{
-			// If elements are out of order according to cmp
-			if (!cmp(lst->data, lst->next->data))
+			if ((*cmp)(current->data, current->next->data) == 0)
 			{
-				// Swap the data between the current and next node
-				temp = lst->data;
-				lst->data = lst->next->data;
-				lst->next->data = temp;
-
-				swapped = 1; // Set flag to indicate a swap occurred
+				temp = current->data;
+				current->data = current->next->data;
+				current->next->data = temp;
+				swaped = 1;
 			}
-			lst = lst->next; // Move to the next pair of nodes
+			current = current->next;
 		}
 	}
-
-	return (start); // Return the head of the sorted list
+	return (lst);
 }
+/**
+int ascending(int a, int b)
+{
+	return (a <= b);
+}
+
+t_list *create_node(int num)
+{
+	t_list *newnode = (t_list *) malloc(sizeof(t_list));
+	if (!newnode)
+		return (NULL);
+	newnode->data = num;
+	newnode->next = NULL;
+	return (newnode);
+}
+
+void append_node(t_list **lst, t_list *newnode)
+{
+	if (!newnode)
+		return ;
+	if (!*lst)
+	{
+		*lst = newnode;
+		return ;
+	}
+	t_list *current = *lst;
+	while (current->next)
+		current = current->next;
+	current->next = newnode;
+}
+
+void print_list(t_list *lst)
+{
+	if (!lst)
+		return ;
+	t_list *current = lst;
+	while (current && current->next)
+	{
+		printf("%d - ", current->data);
+		current = current->next;
+	}
+	printf("%d ", current->data);
+	printf("\n");
+}
+
+void	free_list(t_list *lst)
+{
+	t_list *current = lst;
+	t_list *nextnode;
+
+	while (current)
+	{
+		nextnode = current->next;
+		free(current);
+		current = nextnode;
+	}
+}
+
+int	main()
+{
+	t_list *lst = NULL;
+	append_node(&lst, create_node(5));
+	append_node(&lst, create_node(2));
+	append_node(&lst, create_node(4));
+	append_node(&lst, create_node(1));
+	append_node(&lst, create_node(3));
+	append_node(&lst, create_node(2));
+
+	printf("BEFORE: \n");
+	print_list(lst);
+
+	lst = sort_list(lst, ascending);
+	printf("AFTER: \n");
+	print_list(lst);
+
+	free_list(lst);
+	return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: fyudris <fyudris@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 10:17:02 by fyudris           #+#    #+#             */
-/*   Updated: 2025/05/22 12:42:02 by fyudris          ###   ########.fr       */
+/*   Updated: 2025/05/30 09:17:45 by fyudris          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	count_word(char *str)
 			count++;
 
 		// Skip the word until we reach the next separator or null terminator
-		while (str[i] && str[i] != ' ' || str[i] != '\t' || str[i] != '\n')
+		while (str[i] && (str[i] != ' ' || str[i] != '\t' || str[i] != '\n'))
 			i++;
 	}
 	return (count);
